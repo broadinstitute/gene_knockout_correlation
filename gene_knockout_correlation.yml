@@ -1,0 +1,79 @@
+swagger: '2.0'
+info:
+  version: '2019Q2'
+  title: Gene-knockout correlation
+  description: >-
+    This site provides an API access to gene-knockout correlations based on 
+    [Cancer Dependency Map (DepMap)](https://depmap.org/portal/download/) data.
+    By using this site, you agree to DepMap's [Terms and Conditions](https://depmap.org/portal/terms/).
+  termsOfService: By using this site, you agree to DepMap's Terms and Conditions (https://depmap.org/portal/terms/)
+  contact:
+    name: Broad NCATS translator
+    email: translator@broadinstitute.org
+host: indigo.ncats.io
+basePath: /gene_knockout_correlation
+paths:
+  /genes:
+    get:
+      tags: 
+      - types
+      summary: Retrieve list of genes
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/gene'
+              
+  /correlations/{entrez_gene_id}:
+    get:
+      tags: 
+      - types
+      summary: Retrieve correlations for a gene
+      parameters:
+      - name: entrez_gene_id
+        in: path
+        type: integer
+        required: true
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/correlation'
+              
+              
+
+definitions:
+  gene:
+    type: object
+    properties:
+      gene_symbol:
+        type: string
+      ensembl_gene:
+        type: array
+        items:
+          type: string
+      entrez_gene_id:
+        type: integer
+      synonym:
+        type: array
+        items:
+          type: string
+
+  correlation:
+    type: object
+    properties:
+      entrez_gene_id_1:
+        type: integer
+      entrez_gene_id_2:
+        type: integer
+      correlation:
+        type: number
+      
+  
+  
+  
+  
