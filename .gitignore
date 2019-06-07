@@ -21,3 +21,11 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+#sbt-generated files
+java-play-framework-server/target/
+java-play-framework-server/project/target/
+java-play-framework-server/project/project/target/
+
+#database file
+java-play-framework-server/depmap.gene.correlations.sqlite
