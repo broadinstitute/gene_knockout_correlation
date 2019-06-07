@@ -2,6 +2,7 @@ package controllers;
 
 import apimodels.Correlation;
 import apimodels.Gene;
+import db.DBQuery;
 
 import play.mvc.Http;
 import java.util.List;
@@ -14,14 +15,12 @@ import javax.validation.constraints.*;
 public class TypesApiControllerImp implements TypesApiControllerImpInterface {
     @Override
     public List<Correlation> correlationsEntrezGeneIdGet(Integer entrezGeneId) throws Exception {
-        //Do your magic!!!
-        return new ArrayList<Correlation>();
+        return DBQuery.getCorrelations(entrezGeneId);
     }
 
     @Override
     public List<Gene> genesGet() throws Exception {
-        //Do your magic!!!
-        return new ArrayList<Gene>();
+        return DBQuery.getGenes();
     }
 
 }
