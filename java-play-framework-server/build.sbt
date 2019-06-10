@@ -4,7 +4,7 @@ version := "1.0.0"
 
 lazy val root = (project in file(".")).enablePlugins(PlayJava)
 
-scalaVersion := "2.12.2"
+scalaVersion := "2.11.8"
 
 libraryDependencies += "org.xerial" % "sqlite-jdbc" % "3.21.0"
 libraryDependencies += "org.webjars" % "swagger-ui" % "3.1.5"
